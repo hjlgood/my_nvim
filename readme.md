@@ -1,7 +1,9 @@
 ~/.config/nvim/
 
 git init
-git remote add origin [repo-url]
+git remote add origin git@github.com:hjlgood/my_nvim.git
+
 or
-git remote set-url origin [repo-url]
+git remote set-url origin git@github.com:hjlgood/my_nvim.git
+
 git remote -v
