@@ -93,7 +93,7 @@ set clipboard=unnamedplus,unnamed
 " https://vim.fandom.com/wiki/Folding
 " https://vim.fandom.com/wiki/All_folds_open_when_opening_a_file
 " https://stackoverflow.com/questions/8316139/how-to-set-the-default-to-unfolded-when-you-open-a-file
-set foldmethod=indent
+set foldmethod=indent " indent, syntax, expr, marker, diff
 set foldnestmax=1
 set foldlevelstart=1
 
