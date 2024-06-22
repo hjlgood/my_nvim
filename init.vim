@@ -97,4 +97,4 @@ set foldmethod=indent " indent, syntax, expr, marker, diff
 set foldnestmax=1
 set foldlevelstart=1
 
-" lua require("initial")
+" lua require("initial") 
