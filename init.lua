@@ -124,7 +124,8 @@ vim.opt.statusline="%F"
 -- " Use system clipboard
 -- " http://vim.wikia.com/wiki/Accessing_the_system_clipboard
 -- " for linux
-vim.opt.clipboard = "unnamedplus,unnamed"
+vim.opt.clipboard = "unnamed"
+vim.opt.clipboard = "unnamedplus"
 -- " for macOS
 -- " set clipboard=unnamed
 
@@ -167,16 +168,14 @@ vim.keymap.set('n', '<C-h>', '<Home>')
 vim.keymap.set('n', '<C-l>', '<End>')
 
 
---  ( file (some) text
-
-vim.keymap.set('v', '<S-9>', function()
-    vim.cmd('d')
-    vim.cmd('i')
-    vim.cmd('(')
-    vim.cmd('<esc>')
-    vim.cmd('a')
-    vim.cmd(')')
-    vim.cmd('<esc>')
+vim.keymap.set('v', '9', function()
+    vim.api.nvim_input('d')
+    vim.api.nvim_input('i(')
+    vim.api.nvim_input('<esc>')
+    vim.api.nvim_input('p')
+    vim.api.nvim_input('a')
+    vim.api.nvim_input(')')
+    vim.api.nvim_input('<esc>')
 end)
 
 
