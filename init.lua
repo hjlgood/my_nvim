@@ -28,20 +28,20 @@ require("lazy").setup({
     -----------------------------------------------------------------------
     -----------------------------------------------------------------------
     -- add your plugins here
-	{
-	    'AlexvZyl/nordic.nvim',
-	    lazy = false,
-	    priority = 1000,
-	    config = function()
-	        require('nordic').load()
-	    end
-	},
+	-- {
+	--     'AlexvZyl/nordic.nvim',
+	--     lazy = false,
+	--     priority = 1000,
+	--     config = function()
+	--         require('nordic').load()
+	--     end
+	-- },
     -----------------------------------------------------------------------
     -----------------------------------------------------------------------
   },
   -- Configure any other settings here. See the documentation for more details.
   -- colorscheme that will be used when installing plugins.
-  install = { colorscheme = { "nordic" } },
+  -- install = { colorscheme = { "nordic" } },
   -- automatically check for plugin updates
   checker = { enabled = true },
 })
@@ -50,10 +50,6 @@ require("lazy").setup({
 --------------------------------------------------------------------------
 -- Vim options
 --------------------------------------------------------------------------
-
---drop vi support - kept for vim compatibility but not needed for nvim
---Probably not needed with Vim 8+
--- vim.opt.nocompatible = true
 
 --Search recursively downward from CWD; provides TAB completion for filenames
 --e.g., `:find vim* <TAB>`
@@ -77,12 +73,6 @@ vim.opt.visualbell = false
 --make Backspace work like Delete
 vim.opt.backspace="indent,eol,start"
 
--- # Deprecated : don't create `filename~` backups 
--- vim.opt.nobackup = true
-
--- # Deprecated : don't create temp files     
--- vim.opt.noswapfile = true
-
 --line numbers and distances
 --set relativenumber 
 vim.opt.number = true
@@ -103,10 +93,6 @@ vim.opt.autoindent = false
 
 --statusline indicates insert or normal mode
 vim.opt.showmode  = true
-
---make scrolling and painting fast
---ttyfast kept for vim compatibility but not needed for nvim
--- set ttyfast lazyredraw
 
 --highlight matching parens, braces, brackets, etc
 vim.opt.showmatch = true
@@ -139,10 +125,9 @@ vim.opt.statusline="%F"
 -- " http://vim.wikia.com/wiki/Accessing_the_system_clipboard
 -- " for linux
 vim.opt.clipboard = "unnamedplus,unnamed"
--- vim.opt.clipboard = "unnamed"
 -- " for macOS
 -- " set clipboard=unnamed
--- 
+
 -- " Folding
 -- " https://vim.fandom.com/wiki/Folding
 -- " https://vim.fandom.com/wiki/All_folds_open_when_opening_a_file
@@ -150,6 +135,53 @@ vim.opt.clipboard = "unnamedplus,unnamed"
 vim.opt.foldmethod="indent"  -- indent, syntax, expr, marker, diff
 vim.opt.foldnestmax=1
 vim.opt.foldlevelstart=1
+
+-- # Deprecated : don't create `filename~` backups 
+-- vim.opt.nobackup = true
+
+-- # Deprecated : don't create temp files     
+-- vim.opt.noswapfile = true
+
+-- # Deprecated : drop vi support - kept for vim compatibility but not needed for nvim
+-- vim.opt.nocompatible = true
+
+-- # Deprecated : make scrolling and painting fast
+--ttyfast kept for vim compatibility but not needed for nvim
+-- set ttyfast lazyredraw
+
+
+--------------------------------------------------------------------------
+-- keymaps
+--------------------------------------------------------------------------
+-- copy to system-clipboard +x, +d
+vim.keymap.set('n', 'x', '"+x')
+vim.keymap.set('v', 'x', '"+x')
+vim.keymap.set('n', 'd', '"+d')
+vim.keymap.set('v', 'd', '"+d')
+-- pase from system-clipboard +p
+vim.keymap.set('n', 'p', '"+p')
+vim.keymap.set('v', 'p', '"+p')
+
+
+vim.keymap.set('n', '<C-h>', '<Home>')
+vim.keymap.set('n', '<C-l>', '<End>')
+
+
+--  ( file (some) text
+
+vim.keymap.set('v', '<S-9>', function()
+    vim.cmd('d')
+    vim.cmd('i')
+    vim.cmd('(')
+    vim.cmd('<esc>')
+    vim.cmd('a')
+    vim.cmd(')')
+    vim.cmd('<esc>')
+end)
+
+
+
+
 
 
 
