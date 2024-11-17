@@ -178,6 +178,7 @@ vim.keymap.set('n', '<C-l>', '<End>')
 
 
 vim.keymap.set('v', '9', function()
+    -- add parentheses
     vim.api.nvim_input('d')
     vim.api.nvim_input('i(')
     vim.api.nvim_input('<esc>')
@@ -188,6 +189,19 @@ vim.keymap.set('v', '9', function()
 end)
 
 
+vim.keymap.set('n', '<C-_>', function()
+    -- add comment
+    vim.api.nvim_input('m')
+    vim.api.nvim_input('z')
+    vim.api.nvim_input('<Home>')
+    vim.api.nvim_input('i')
+    vim.api.nvim_input('#')
+    vim.api.nvim_input('<esc>')
+    vim.api.nvim_input('`')
+    vim.api.nvim_input('z')
+    vim.api.nvim_input('l')
+    vim.api.nvim_input(':delmarks z <CR>')
+end)
 
 
 
