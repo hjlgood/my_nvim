@@ -190,19 +190,32 @@ end)
 
 
 vim.keymap.set('n', '<C-_>', function()
-    -- add comment
-    vim.api.nvim_input('m')
-    vim.api.nvim_input('z')
+    -- This funciton toggle comment("#") at the start of the line  
+    vim.api.nvim_input('m')                           -- save current position
+    vim.api.nvim_input('z')                           -- at "z"
     vim.api.nvim_input('<Home>')
-    vim.api.nvim_input('i')
-    vim.api.nvim_input('#')
-    vim.api.nvim_input('<esc>')
-    vim.api.nvim_input('`')
-    vim.api.nvim_input('z')
-    vim.api.nvim_input('l')
-    vim.api.nvim_input(':delmarks z <CR>')
+    local line = vim.api.nvim_get_current_line()      -- Get the current line and column position
+    -- local col = vim.fn.col('.') - 1                -- Column position. Convert to 0-based index
+    local char = line:sub(1, 1)                       -- Get the character under the cursor
+    -- print("Character under cursor: " .. char)      -- Print the character
+    if char == "#" then
+        vim.api.nvim_input('i')
+        vim.api.nvim_input('<del>')
+        vim.api.nvim_input('<esc>')
+        vim.api.nvim_input('`')                -- move to saved position
+        vim.api.nvim_input('z')                -- 'z'
+        vim.api.nvim_input('h')                -- move left 1 space
+        vim.api.nvim_input(':delmarks z <CR>') -- remove saved position
+    else
+        vim.api.nvim_input('i')
+        vim.api.nvim_input('#')
+        vim.api.nvim_input('<esc>')
+        vim.api.nvim_input('`')
+        vim.api.nvim_input('z')
+        vim.api.nvim_input('l')
+        vim.api.nvim_input(':delmarks z <CR>')
+    end
 end)
-
 
 
 
