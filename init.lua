@@ -163,12 +163,12 @@ vim.opt.foldlevelstart=1
 --------------------------------------------------------------------------
 -- keymaps
 --------------------------------------------------------------------------
--- copy to system-clipboard +x, +d
+-- Copy to system-clipboard +x, +d
 vim.keymap.set('n', 'x', '"+x')
 vim.keymap.set('v', 'x', '"+x')
 vim.keymap.set('n', 'd', '"+d')
 vim.keymap.set('v', 'd', '"+d')
--- pase from system-clipboard +p
+-- Paste from system-clipboard +p
 vim.keymap.set('n', 'p', '"+p')
 vim.keymap.set('v', 'p', '"+p')
 
@@ -177,20 +177,28 @@ vim.keymap.set('n', '<C-h>', '<Home>')
 vim.keymap.set('n', '<C-l>', '<End>')
 
 
+-- Add parentheses
 vim.keymap.set('v', '9', function()
-    -- add parentheses
     vim.api.nvim_input('d')
     vim.api.nvim_input('i(')
     vim.api.nvim_input('<esc>')
     vim.api.nvim_input('p')
-    vim.api.nvim_input('a')
-    vim.api.nvim_input(')')
+    vim.api.nvim_input('a)')
     vim.api.nvim_input('<esc>')
 end)
 
+-- Add Quates
+vim.keymap.set('v', '\'', function()
+    vim.api.nvim_input('d')
+    vim.api.nvim_input('i\"')
+    vim.api.nvim_input('<esc>')
+    vim.api.nvim_input('p')
+    vim.api.nvim_input('a\"')
+    vim.api.nvim_input('<esc>')
+end)
 
+-- Toggle comment("#") at the start of the line  
 vim.keymap.set('n', '<C-_>', function()
-    -- This funciton toggle comment("#") at the start of the line  
     vim.api.nvim_input('m')                           -- save current position
     vim.api.nvim_input('z')                           -- at "z"
     vim.api.nvim_input('<Home>')
@@ -210,6 +218,9 @@ vim.keymap.set('n', '<C-_>', function()
         vim.api.nvim_input('i')
         vim.api.nvim_input('#')
         vim.api.nvim_input('<esc>')
+        vim.api.nvim_input('h')
+        vim.api.nvim_input('viw')
+        vim.api.nvim_input('x')
         vim.api.nvim_input('`')
         vim.api.nvim_input('z')
         vim.api.nvim_input('l')
