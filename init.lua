@@ -66,6 +66,12 @@ require("lazy").setup({
 	},
 	{
 	    'vim-airline/vim-airline-themes',
+        config = function()
+            vim.g.airline_theme = "bubblegum"
+            --vim.g.airline_theme = "catppuccin"
+            --vim.g.airline_theme = "molokai"
+            --vim.g.airline_theme = "wombat"
+        end
 	},
     -----------------------------------------------------------------------
     -----------------------------------------------------------------------
@@ -84,13 +90,11 @@ require("lazy").setup({
 --Coloscheme
 --catppuccin-latte, catppuccin-frappe, catppuccin-macchiato, catppuccin-mocha
 vim.cmd.colorscheme "catppuccin-mocha"
---vim.cmd("AirlineTheme catppuccin")
-vim.cmd("AirlineTheme bubblegum")
 
 --use Unicode
 vim.opt.encoding = 'utf-8'
 --set Font
-vim.opt.guifont = "Meslo_LG_S_for_Powerline:h9"
+--vim.opt.guifont = "Meslo_LG_S_for_Powerline:h9"
 
 --Search recursively downward from CWD; provides TAB completion for filenames
 --e.g., `:find vim* <TAB>`
