@@ -41,6 +41,32 @@ require("lazy").setup({
 	    name = "catpuccin",
 	    priority = 1000,
 	},
+	{
+	    'vim-airline/vim-airline', 
+        config = function()
+            -- Define custom symbols if Powerline fonts are not working
+            vim.g.airline_powerline_fonts = 1
+            vim.g.airline_left_sep = ''
+            vim.g.airline_left_alt_sep = ''
+            vim.g.airline_right_sep = ''
+            vim.g.airline_right_alt_sep = ''
+            vim.g.airline_branch = ''
+            vim.g.airline_readonly = ''
+            vim.g.airline_linenr = '␊'
+            -- Disable the whitespace extension completely
+            -- vim.g.airline_extensions_whitespace_enabled = 0
+            -- Disable whitespace checking on a per-buffer basis
+            vim.api.nvim_create_autocmd('BufEnter', {
+              pattern = '*',
+              callback = function()
+                vim.b.airline_whitespace_disabled = 1
+              end
+            })
+        end
+	},
+	{
+	    'vim-airline/vim-airline-themes',
+	},
     -----------------------------------------------------------------------
     -----------------------------------------------------------------------
     -----------------------------------------------------------------------
@@ -52,13 +78,19 @@ require("lazy").setup({
   checker = { enabled = true },
 })
 
-
 --------------------------------------------------------------------------
 -- Vim options
 --------------------------------------------------------------------------
 --Coloscheme
--- " catppuccin-latte, catppuccin-frappe, catppuccin-macchiato, catppuccin-mocha
+--catppuccin-latte, catppuccin-frappe, catppuccin-macchiato, catppuccin-mocha
 vim.cmd.colorscheme "catppuccin-mocha"
+--vim.cmd("AirlineTheme catppuccin")
+vim.cmd("AirlineTheme bubblegum")
+
+--use Unicode
+vim.opt.encoding = 'utf-8'
+--set Font
+vim.opt.guifont = "Meslo_LG_S_for_Powerline:h9"
 
 --Search recursively downward from CWD; provides TAB completion for filenames
 --e.g., `:find vim* <TAB>`
@@ -72,9 +104,6 @@ vim.opt.modelines = 0
 vim.opt.autoread = true
 -- " http://stackoverflow.com/questions/2490227/how-does-vims-autoread-work#20418591
 -- au FocusGained,BufEnter * :silent! !
-
---use Unicode
-vim.opt.encoding = 'utf-8'
 
 --errors flash screen rather than emit beep
 vim.opt.visualbell = false
@@ -159,7 +188,6 @@ vim.opt.foldlevelstart=1
 --ttyfast kept for vim compatibility but not needed for nvim
 -- set ttyfast lazyredraw
 
-
 --------------------------------------------------------------------------
 -- keymaps
 --------------------------------------------------------------------------
@@ -171,11 +199,9 @@ vim.keymap.set('v', 'd', '"+d')
 -- Paste from system-clipboard +p
 vim.keymap.set('n', 'p', '"+p')
 vim.keymap.set('v', 'p', '"+p')
-
-
+-- Move end to end
 vim.keymap.set('n', '<C-h>', '<Home>')
 vim.keymap.set('n', '<C-l>', '<End>')
-
 
 -- Add parentheses
 vim.keymap.set('v', '9', function()
@@ -227,7 +253,5 @@ vim.keymap.set('n', '<C-_>', function()
         vim.api.nvim_input(':delmarks z <CR>')
     end
 end)
-
-
 
 
