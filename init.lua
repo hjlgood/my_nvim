@@ -28,21 +28,13 @@ require("lazy").setup({
     -----------------------------------------------------------------------
     --------------------------add your plugins here------------------------
     -----------------------------------------------------------------------
---	{
---	    'AlexvZyl/nordic.nvim',
---	    lazy = false,
---	    priority = 1000,
---	    config = function()
---	        require('nordic').load()
---	    end
---	},
-	{
-	    'catppuccin/nvim',
-	    name = "catpuccin",
-	    priority = 1000,
-	},
-	{
-	    'vim-airline/vim-airline', 
+  {
+      'catppuccin/nvim',
+      name = "catpuccin",
+      priority = 1000,
+  },
+  {
+      'vim-airline/vim-airline', 
         config = function()
             -- Define custom symbols if Powerline fonts are not working
             vim.g.airline_powerline_fonts = 1
@@ -63,16 +55,16 @@ require("lazy").setup({
               end
             })
         end
-	},
-	{
-	    'vim-airline/vim-airline-themes',
+  },
+  {
+      'vim-airline/vim-airline-themes',
         config = function()
             vim.g.airline_theme = "bubblegum"
             --vim.g.airline_theme = "catppuccin"
             --vim.g.airline_theme = "molokai"
             --vim.g.airline_theme = "wombat"
         end
-	},
+  },
     -----------------------------------------------------------------------
     -----------------------------------------------------------------------
     -----------------------------------------------------------------------
@@ -191,6 +183,18 @@ vim.opt.foldlevelstart=1
 -- # Deprecated : make scrolling and painting fast
 --ttyfast kept for vim compatibility but not needed for nvim
 -- set ttyfast lazyredraw
+
+-- Add dot at spaces using vim.opt for more Lua-friendly syntax
+vim.opt.list = true
+vim.opt.listchars = {
+--  tab = "» ",
+--  trail = "·",
+--  extends = "›",
+--  precedes = "‹",
+--  nbsp = "␣",
+  space = "·",
+}
+
 
 --------------------------------------------------------------------------
 -- keymaps
