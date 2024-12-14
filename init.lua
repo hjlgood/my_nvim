@@ -81,7 +81,7 @@ require("lazy").setup({
 --------------------------------------------------------------------------
 --Coloscheme
 --catppuccin-latte, catppuccin-frappe, catppuccin-macchiato, catppuccin-mocha
-vim.cmd.colorscheme "catppuccin-mocha"
+vim.cmd.colorscheme "catppuccin-macchiato"
 
 --use Unicode
 vim.opt.encoding = 'utf-8'
@@ -184,7 +184,7 @@ vim.opt.foldlevelstart=1
 --ttyfast kept for vim compatibility but not needed for nvim
 -- set ttyfast lazyredraw
 
--- Add dot at spaces using vim.opt for more Lua-friendly syntax
+-- Add dot at spaces
 vim.opt.list = true
 vim.opt.listchars = {
 --  tab = "» ",
@@ -195,6 +195,9 @@ vim.opt.listchars = {
   space = "·",
 }
 
+-- word wrap
+vim.opt.wrap=true
+vim.opt.linebreak=true
 
 --------------------------------------------------------------------------
 -- keymaps
