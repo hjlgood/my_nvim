@@ -65,6 +65,9 @@ require("lazy").setup({
             --vim.g.airline_theme = "wombat"
         end
   },
+  {
+      'dpelle/vim-LanguageTool',
+  },
     -----------------------------------------------------------------------
     -----------------------------------------------------------------------
     -----------------------------------------------------------------------
@@ -199,6 +202,10 @@ vim.opt.listchars = {
 vim.opt.wrap=true
 vim.opt.linebreak=true
 
+-- languagetool let g
+vim.g.languagetool_jar='$HOME/LanguageTool-5.9/languagetool-commandline.jar'
+-- vim.g.languagetool_cmd='java -jar $HOME/Downloads/LanguageTool-6.5/languagetool-commandline.jar'
+vim.g.languagetool_lang='en-US'
 --------------------------------------------------------------------------
 -- keymaps
 --------------------------------------------------------------------------
