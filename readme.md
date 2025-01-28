@@ -19,3 +19,11 @@
 #TerminalWindow .notebook-tab {
     min-height: 10px; /* Adjust the height as needed */
 }
+
+
+
+# Git commands
+### Check remote repository
+git remote -v
+### Add remote repository
+git remote add origin <remote-repository-url>
