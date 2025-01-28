@@ -140,10 +140,6 @@ vim.opt.incsearch  =true
 vim.opt.ignorecase =true 
 vim.opt.smartcase  =true
 
--- As opposed to `wrap`
--- set nowrap
-vim.opt.wrap = false
-
 -- " http://vim.wikia.com/wiki/Set_working_directory_to_the_current_file
 vim.opt.autochdir = true
 
@@ -199,7 +195,7 @@ vim.opt.listchars = {
 }
 
 -- word wrap
-vim.opt.wrap=true
+vim.opt.wrap=false
 vim.opt.linebreak=true
 
 -- languagetool let g
