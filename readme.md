@@ -26,4 +26,4 @@
 ### Check remote repository
 git remote -v
 ### Add remote repository
-git remote add origin <remote-repository-url>
+git remote add origin $remote-repository-url$
