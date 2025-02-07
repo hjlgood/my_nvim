@@ -205,6 +205,12 @@ vim.g.languagetool_lang='en-US'
 --------------------------------------------------------------------------
 -- keymaps
 --------------------------------------------------------------------------
+vim.api.nvim_set_keymap("n", "<S-l>", "<cmd>normal! 20l<CR>", { noremap = true, silent = true })
+vim.api.nvim_set_keymap("n", "<S-h>", "<cmd>normal! 20h<CR>", { noremap = true, silent = true })
+vim.api.nvim_set_keymap("n", "<S-k>", "<cmd>normal! 10k<CR>", { noremap = true, silent = true })
+vim.api.nvim_set_keymap("n", "<S-j>", "<cmd>normal! 10j<CR>", { noremap = true, silent = true })
+
+
 -- Copy to system-clipboard +x, +d
 vim.keymap.set('n', 'x', '"+x')
 vim.keymap.set('v', 'x', '"+x')
