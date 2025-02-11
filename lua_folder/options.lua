@@ -86,10 +86,10 @@ vim.opt.foldmethod="indent"  -- indent, syntax, expr, marker, diff
 vim.opt.foldnestmax=1
 vim.opt.foldlevelstart=1
 
--- # Deprecated : don't create `filename~` backups 
+-- # Deprecated : don't create `filename~` backups
 -- vim.opt.nobackup = true
 
--- # Deprecated : don't create temp files     
+-- # Deprecated : don't create temp files
 -- vim.opt.noswapfile = true
 
 -- # Deprecated : drop vi support - kept for vim compatibility but not needed for nvim
@@ -119,3 +119,7 @@ vim.g.languagetool_jar='$HOME/LanguageTool-5.9/languagetool-commandline.jar'
 -- vim.g.languagetool_cmd='java -jar $HOME/Downloads/LanguageTool-6.5/languagetool-commandline.jar'
 vim.g.languagetool_lang='en-US'
 
+
+-- Transparency
+-- vim.api.nvim_set_hl(0, "Normal"  ,{bg = "NONE", ctermbg = "NONE"})
+-- vim.api.nvim_set_hl(0, "NonText" ,{bg = "NONE", ctermbg = "NONE"})
