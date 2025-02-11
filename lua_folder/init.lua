@@ -79,3 +79,6 @@ require("lazy").setup({
   checker = { enabled = true },
 })
 
+--Coloscheme
+--catppuccin-latte, catppuccin-frappe, catppuccin-macchiato, catppuccin-mocha
+vim.cmd.colorscheme "catppuccin-macchiato"

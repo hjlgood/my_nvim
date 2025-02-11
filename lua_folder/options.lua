@@ -1,9 +1,6 @@
 --------------------------------------------------------------------------
 -- Vim options
 --------------------------------------------------------------------------
---Coloscheme
---catppuccin-latte, catppuccin-frappe, catppuccin-macchiato, catppuccin-mocha
-vim.cmd.colorscheme "catppuccin-macchiato"
 
 --use Unicode
 vim.opt.encoding = 'utf-8'
