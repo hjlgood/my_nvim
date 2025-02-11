@@ -3,8 +3,8 @@
 --------------------------------------------------------------------------
 vim.api.nvim_set_keymap("n", "<C-l>", "<cmd>normal! 20l<CR>", { noremap = true, silent = true })
 vim.api.nvim_set_keymap("n", "<C-h>", "<cmd>normal! 20h<CR>", { noremap = true, silent = true })
-vim.api.nvim_set_keymap("n", "<C-k>", "<cmd>normal! 10k<CR>", { noremap = true, silent = true })
-vim.api.nvim_set_keymap("n", "<C-j>", "<cmd>normal! 10j<CR>", { noremap = true, silent = true })
+vim.api.nvim_set_keymap("n", "<C-k>", "<cmd>normal! 5k<CR>",  { noremap = true, silent = true })
+vim.api.nvim_set_keymap("n", "<C-j>", "<cmd>normal! 5j<CR>",  { noremap = true, silent = true })
 
 
 -- Copy to system-clipboard +x, +d
@@ -15,28 +15,16 @@ vim.keymap.set('v', 'd', '"+d')
 -- Paste from system-clipboard +p
 vim.keymap.set('n', 'p', '"+p')
 vim.keymap.set('v', 'p', '"+p')
--- Move end to end
-vim.keymap.set('n', '<C-h>', '<Home>')
-vim.keymap.set('n', '<C-l>', '<End>')
+
 
 -- Add parentheses
 vim.keymap.set('v', '9', function()
-    vim.api.nvim_input('d')
-    vim.api.nvim_input('i(')
-    vim.api.nvim_input('<esc>')
-    vim.api.nvim_input('p')
-    vim.api.nvim_input('a)')
-    vim.api.nvim_input('<esc>')
+    vim.api.nvim_input('di()<esc>hp')
 end)
 
--- Add Quates
+-- Add Double Quates
 vim.keymap.set('v', '\'', function()
-    vim.api.nvim_input('d')
-    vim.api.nvim_input('i\"')
-    vim.api.nvim_input('<esc>')
-    vim.api.nvim_input('p')
-    vim.api.nvim_input('a\"')
-    vim.api.nvim_input('<esc>')
+    vim.api.nvim_input('di\"\"<esc>hp')
 end)
 
 -- Toggle comment("#") at the start of the line  
